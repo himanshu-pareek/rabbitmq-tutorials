@@ -2,10 +2,11 @@ package dev.javarush.rabbitmq_tutorials;
 
 import com.rabbitmq.client.ConnectionFactory;
 
+import com.rabbitmq.client.MessageProperties;
 import java.util.Scanner;
 
 public class RabbitMQProducer {
-    private static final String QUEUE_NAME = "hello";
+    private static final String QUEUE_NAME = "task_queue";
 
     private static final String hostName = System.getenv("RABBITMQ_HOST");
     private static final int port = Integer.parseInt(System.getenv("RABBITMQ_PORT"));
@@ -21,11 +22,11 @@ public class RabbitMQProducer {
         factory.setPassword(password);
         try (var connection = factory.newConnection();
                 var channel = connection.createChannel()) {
-            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+            channel.queueDeclare(QUEUE_NAME, true, false, false, null);
             while (true) {
                 System.out.print("Enter message to send: ");
                 String message = scanner.nextLine();
-                channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+                channel.basicPublish("", QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
                 System.out.println("Sent ✅");
             }
         }
