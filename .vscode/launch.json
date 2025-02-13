@@ -6,6 +6,22 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LogsConsumer",
+            "request": "launch",
+            "mainClass": "dev.javarush.rabbitmq_tutorials.LogsConsumer",
+            "projectName": "logs-consumer",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "LogsProducer",
+            "request": "launch",
+            "mainClass": "dev.javarush.rabbitmq_tutorials.LogsProducer",
+            "projectName": "logs-producer",
+            "envFile": "${workspaceFolder}/.env"
+        }, 
+        {
+            "type": "java",
             "name": "RabbitMQProducer",
             "request": "launch",
             "mainClass": "dev.javarush.rabbitmq_tutorials.RabbitMQProducer",
