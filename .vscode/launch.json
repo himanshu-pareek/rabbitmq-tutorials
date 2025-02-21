@@ -6,6 +6,22 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TopicLogsProducer",
+            "request": "launch",
+            "mainClass": "dev.javarush.rabbitmq_tutorials.TopicLogsProducer",
+            "projectName": "topic-demo-producer",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "TopicLogsConsumer",
+            "request": "launch",
+            "mainClass": "dev.javarush.rabbitmq_tutorials.TopicLogsConsumer",
+            "projectName": "topic-demo-consumer",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
             "name": "RoutingDemoProducer",
             "request": "launch",
             "mainClass": "dev.javarush.rabbitmq_tutorials.RoutingDemoProducer",
